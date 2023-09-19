@@ -1,5 +1,5 @@
 <template>
-  <button :class="buttonClass">
+  <button :class="buttonClass" @click="emitProfileClicked">
     <slot></slot>
   </button>
 </template>
@@ -9,6 +9,12 @@ export default {
   props: {
     buttonClass: String, // You can pass additional classes if needed
     marginStyle: String, // Add a prop for margin style
+  },
+  methods: {
+    emitProfileClicked() {
+      // Emit a custom event to signal that the button has been clicked
+      this.$emit("button-click");
+    },
   },
 };
 </script>

@@ -7,7 +7,7 @@
       <TextField /> <!-- Import and use the TextField component for the search bar -->
     </div>
     <div class="button-container">
-      <Button buttonClass="profile-button">Profile</Button> <!-- Profile button -->
+      <Button buttonClass="profile-button" @click="showProfile">Profile</Button> <!-- Profile button -->
     </div>
   </div>
 </template>
@@ -21,8 +21,17 @@ export default {
     Button,
     TextField,
   },
+  methods: {
+    showProfile() {
+      // Emit a custom event to signal that the Profile button is clicked
+      this.$emit('profile-clicked');
+    },
+  },
 };
 </script>
+
+
+
 
 <style scoped>
 .header-container {
